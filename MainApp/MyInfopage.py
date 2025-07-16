@@ -1,10 +1,12 @@
 import streamlit as st
 from pandas import read_csv
-col1, col2 = st.columns(2)
+col1, col2 = st.columns(2) 
+
 #layout wide means fit to size of window
 st.set_page_config(layout="wide")
+
 with col1:
-    st.image("MainProj/photo.jpg")
+    st.image("photo.jpg")
 
 with col2:
     st.title("Kaamil Rifaq")
@@ -15,7 +17,7 @@ st.write("This is the first initialization")
 
 col3, gap, col4 = st.columns([3,1,3])
 
-df = read_csv("MainProj/data.csv",sep = ";")
+df = read_csv("data.csv",sep = ";")      #converts the code into classes with each class being a row
 print(df)
 
 with col3:
@@ -23,7 +25,7 @@ with col3:
         if index % 2 == 0:
             st.title(classes["title"])
             st.text(classes["description"])
-            st.image(f"MainProj/pictures/{classes["image"]}")
+            st.image(f"pictures/{classes["image"]}")
             st.write(f"[Source Code]({classes["url"]})")
 
 with col4:
@@ -31,7 +33,7 @@ with col4:
         if index % 2 != 0:
             st.title(classes["title"])
             st.text(classes["description"])
-            st.image(f"MainProj/pictures/{classes["image"]}")
+            st.image(f"pictures/{classes["image"]}")
             st.write(f"[Source Code]({classes["url"]})")
         
 
